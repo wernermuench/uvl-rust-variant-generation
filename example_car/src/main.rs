@@ -9,7 +9,7 @@ fn calculate_total_cost() -> f64 {
 
     println!("Base Price: \t\t\t\t{:.2} €", base_price);
 
-    // Engine Costs
+    // Engine costs
     feat_if!("Electric", {
         let price = feat_value!("Electric.Price");
         total_cost += price;
@@ -22,7 +22,7 @@ fn calculate_total_cost() -> f64 {
         println!(" + Gasoline Engine: \t\t\t{:.2} €", price);
     });
 
-    // Battery Costs
+    // Battery costs
     feat_if!("Battery", {
         let battery_cost = 
             feat_if!("HybridBattery", {
@@ -48,7 +48,7 @@ fn calculate_total_cost() -> f64 {
         }
     });
 
-    // Paint Costs
+    // Paint costs
     feat_if!("Blue", { 
         let price = feat_value!("Blue.Price");
         total_cost += price;
@@ -81,10 +81,10 @@ fn calculate_total_cost() -> f64 {
         println!(" + Cruise Control: \t\t\t{:.2} €", price);
     });
 
-    // Sensor Costs 
+    // Sensor costs 
     feat_if!("UltrasonicSensor > 0", {
         let count = feat_value!("UltrasonicSensor");
-        // Assume a fixed unit price here
+        // Fixed unit price
         let unit_price = 1000.0; 
         let sensor_total = (count as f64) * unit_price;
         
@@ -128,7 +128,7 @@ fn main() {
     });
 
 
-    // Nested if else constructs
+    // Nested if-else constructs
     feat_if!("Battery", {
         feat_if!("LongRange", {
             let cap = feat_value!("LongRange.Capacity");
@@ -157,7 +157,7 @@ fn main() {
     });
 
 
-    // Testing conditional function call
+    // Conditional function call
     feat_ifdef!("Autopilot", {
         activate_autonomous_driving();
     } else {
@@ -165,7 +165,7 @@ fn main() {
     });
     
 
-    // Testing UVL constraints
+    // Checking UVL constraints
     feat_if!("Battery && Gasoline && !Electric", {
         println!("ERROR: Only an electric car can have a battery!");
     });
@@ -178,13 +178,13 @@ fn main() {
     });
 
     
-    // Testing macros within expressions
+    // Macros within expressions
     let total = base_price + feat_ifdef!("Electric", { feat_value!("Electric.Price") } 
                                                      else { feat_value!("Gasoline.Price") });
     println!("Current Price Calculation (Base + Engine): ${}", total);
 
 
-    // Testing macro functions: sel()
+    // Helper function: sel()
     feat_if!("(sel(Cruise_Control) + sel(Autopilot) + sel(ParkAssist)) == 0 \
            || (sel(Cruise_Control) + sel(Autopilot) + sel(ParkAssist)) <= 2", {
 
@@ -202,6 +202,6 @@ fn main() {
     let final_price = calculate_total_cost();
 
     println!("--------------------------------------------------");
-    println!("Total Vehicle Configuration Cost: \t{:.2} €", final_price);
+    println!("Total costs for car configuration: \t{:.2} €", final_price);
 
 }
