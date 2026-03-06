@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "uvl_macros",
+    "example_car",
+]
+resolver = "2"

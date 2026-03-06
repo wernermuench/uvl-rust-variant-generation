@@ -1,0 +1,44 @@
+include
+    Boolean.group-cardinality
+    Arithmetic.aggregate-function
+    Arithmetic.feature-cardinality
+    Type
+
+features
+    Car
+        mandatory
+            String Manufacturer
+            String ModelName
+            Real BasePrice
+            Engine
+                or
+                    Electric {Price 10000.0, PS 600}
+                    Gasoline {Price 15000.0, PS 300}  
+            AssistanceSystems
+                [0..2]
+                    "Cruise Control" {Price 500.0}
+                    Autopilot {Price 3000.0}  
+                    ParkAssist
+                        mandatory 
+                            UltrasonicSensor cardinality [4..8] {Price 1000.0}                                    
+            Paint
+                alternative   
+                    White {Price 0.0}
+                    Black {Price 500.0}
+                    Blue {Price 1000.0}
+        optional
+            Battery
+                alternative
+                    HybridBattery {Price 2500.0, Capacity 15}
+                    NormalRange {Price 7500.0, Capacity 50}
+                    LongRange {Price 15000.0, Capacity 70}
+
+constraints
+    (Electric & !Gasoline) <=> (NormalRange | LongRange)
+    (Electric & Gasoline) <=> HybridBattery
+    !Electric <=> !Battery
+    Autopilot => Electric
+    (Electric.PS > 600.0) => LongRange
+    BasePrice + sum(Price) < 60000.0
+    BasePrice + sum(Price) > 15000.0
+    UltrasonicSensor.Price == 1000.0

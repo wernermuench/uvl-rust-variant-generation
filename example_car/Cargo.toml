@@ -1,0 +1,21 @@
+[package]
+name = "exampleProgram"
+version = "0.1.0"
+edition = "2024"
+#build = "build.rs"  # dont forget, else ide makes everything red
+
+[dependencies]
+uvl_macros = { path = "../uvl_macros" }
+
+[package.metadata]
+#uvl_path = "config.uvl.json"
+uvl_path = "../feature_model/car.uvl.json"
+#uvl_path = "/home/werner/Dokumente/UVL-Rust-SoftwareVariantsGenerator/exampleProgram/config.uvl.json"
+
+[features]
+default     = []
+Sandwich    = []
+Bread       = []
+Sauce       = []
+Cheese      = []
+Pickle      = []

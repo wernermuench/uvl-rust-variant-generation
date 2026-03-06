@@ -1,0 +1,42 @@
+{
+  "file": "test.uvl",
+  "config": {
+    "Sandwich": true,
+    "Name": "Special-Veggi",
+    "Bread": true,
+    "Bread.Calories": 100.0,
+    "Bread.Sugar": 20.0,
+    "Price": 4.2,
+    "Sauce": true,
+    "Ketchup": false,
+    "Mustard": true,
+    "Mustard.Calories": 25.0,
+    "Mustard.Sugar": 5.0,
+    "Cheese": true,
+    "Cheddar": false,
+    "Gouda": false,
+    "Goat": false,
+    "Pickle": [
+      {
+        "Pickle": true
+      },
+      {
+        "Pickle": true
+      },
+      {
+        "Pickle": false
+      },
+      {
+        "Pickle": false
+      },
+      {
+        "Pickle": false
+      }
+    ],
+    "\"Take Away\"": false,
+    "\"Eat Here\"": false,
+    "A": true,
+    "GPS": true,
+    "tree":false
+  }
+}

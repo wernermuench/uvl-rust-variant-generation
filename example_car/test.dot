@@ -1,0 +1,45 @@
+digraph FeatureModel {
+rankdir="TB"
+newrank=true
+bgcolor="#1e1e1e"
+edge [color=white]
+node [style=filled fontcolor="white" fontname="Arial Unicode MS, Arial"];
+
+Bread [fillcolor="#ABACEA" tooltip="Cardinality: None" shape="box"]
+Sandwich -> Bread [arrowhead="dot", arrowtail="none", dir="both"]
+Name [fillcolor="#ABACEA" tooltip="Cardinality: None" shape="box"]
+Sandwich -> Name [arrowhead="dot", arrowtail="none", dir="both"]
+Price [fillcolor="#ABACEA" tooltip="Cardinality: None" shape="box"]
+Sandwich -> Price [arrowhead="dot", arrowtail="none", dir="both"]
+Ketchup [fillcolor="#ABACEA" tooltip="Cardinality: None" shape="box"]
+Sauce -> Ketchup [arrowhead="none", arrowtail="dot", dir="both"]
+Mustard [fillcolor="#ABACEA" tooltip="Cardinality: None" shape="box"]
+Sauce -> Mustard [arrowhead="none", arrowtail="dot", dir="both"]
+Sauce [fillcolor="#ABACEA" tooltip="Cardinality: None" shape="invhouse"]
+Sandwich -> Sauce [arrowhead="odot", arrowtail="none", dir="both"]
+Cheddar [fillcolor="#ABACEA" tooltip="Cardinality: None" shape="box"]
+Cheese -> Cheddar [arrowhead="none", arrowtail="none", dir="both"]
+Gouda [fillcolor="#ABACEA" tooltip="Cardinality: None" shape="box"]
+Cheese -> Gouda [arrowhead="none", arrowtail="none", dir="both"]
+Goat [fillcolor="#ABACEA" tooltip="Cardinality: None" shape="box"]
+Cheese -> Goat [arrowhead="none", arrowtail="none", dir="both"]
+Cheese [fillcolor="#ABACEA" tooltip="Cardinality: None" shape="box"]
+Sandwich -> Cheese [arrowhead="odot", arrowtail="none", dir="both"]
+Pickle [fillcolor="#ABACEA" tooltip="Cardinality: Some(Range(1, 5))" shape="box"]
+Sandwich -> Pickle [arrowhead="odot", arrowtail="none", dir="both"]
+"Take Away" [fillcolor="#ABACEA" tooltip="Cardinality: None" shape="box"]
+Sandwich -> "Take Away" [arrowhead="none", arrowtail="odot", dir="both"]
+"Eat Here" [fillcolor="#ABACEA" tooltip="Cardinality: None" shape="box"]
+Sandwich -> "Eat Here" [arrowhead="none", arrowtail="odot", dir="both"]
+Sandwich [fillcolor="#ABACEA" tooltip="Cardinality: None" shape="invhouse"]
+
+
+subgraph cluster_constraints{
+    label="Constraints" color="white" fontcolor="white"
+    constraints [shape="box" color="#1e1e1e" label=<<table border="0" cellpadding="0" cellspacing="0" cellborder="0">
+        <tr><td align="left">Ketchup =&gt; Cheese</td></tr>
+    <tr><td align="left">Bread.Sugar + Ketchup.Sugar + Mustard.Sugar &lt; 60</td></tr>
+    <tr><td align="left">sum(Calories) &lt; 160</td></tr>
+</table>>]
+}
+}

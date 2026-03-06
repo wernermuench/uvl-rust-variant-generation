@@ -1,0 +1,73 @@
+{
+  "file": "car.uvl",
+  "config": {
+    "Car": true,
+    "Manufacturer": "CrazyCompany",
+    "ModelName": "CrazyCar",
+    "BasePrice": 10000.0,
+    "Engine": true,
+    "Electric": true,
+    "Electric.Price": 10000.0,
+    "Electric.PS": 600.0,
+    "Gasoline": true,
+    "Gasoline.Price": 15000.0,
+    "Gasoline.PS": 300.0,
+    "AssistanceSystems": true,
+    "\"Cruise Control\"": false,
+    "\"Cruise Control\".Price": 0.0,
+    "Autopilot": true,
+    "Autopilot.Price": 3000.0,
+    "ParkAssist": true,
+    "UltrasonicSensor": [
+      {
+        "UltrasonicSensor": true,
+        "UltrasonicSensor.Price": 1000.0
+      },
+      {
+        "UltrasonicSensor": true,
+        "UltrasonicSensor.Price": 1000.0
+      },
+      {
+        "UltrasonicSensor": true,
+        "UltrasonicSensor.Price": 1000.0
+      },
+      {
+        "UltrasonicSensor": true,
+        "UltrasonicSensor.Price": 1000.0
+      },
+      {
+        "UltrasonicSensor": false,
+        "UltrasonicSensor.Price": 0.0
+      },
+      {
+        "UltrasonicSensor": false,
+        "UltrasonicSensor.Price": 0.0
+      },
+      {
+        "UltrasonicSensor": false,
+        "UltrasonicSensor.Price": 0.0
+      },
+      {
+        "UltrasonicSensor": false,
+        "UltrasonicSensor.Price": 0.0
+      }
+    ],
+    "Paint": true,
+    "White": false,
+    "White.Price": 0.0,
+    "Black": false,
+    "Black.Price": 500.0,
+    "Blue": true,
+    "Blue.Price": 1000.0,
+    "Battery": true,
+    "HybridBattery": true,
+    "HybridBattery.Price": 2500.0,
+    "HybridBattery.Capacity": 15.0,
+    "NormalRange": false,
+    "NormalRange.Price": 7500.0,
+    "NormalRange.Capacity": 50.0,
+    "LongRange": false,
+    "LongRange.Price": 15000.0,
+    "LongRange.Capacity": 70.0
+  }
+}
