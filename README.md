@@ -10,8 +10,8 @@ implemented using Rust's macro system.
 
 This repository contains:
 
-- `uvl_macros` – the procedural macro crate
-- `example_car` – a small example project demonstrating the usage
+- `uvl_macros` — the procedural macro crate
+- `example_car` — a small example project demonstrating the usage
 
 
 ---
