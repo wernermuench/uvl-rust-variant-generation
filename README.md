@@ -11,7 +11,8 @@ implemented using Rust's macro system.
 This repository contains:
 
 - `uvl_macros` — the procedural macro crate
-- `example_car` — a small example project demonstrating the usage
+- `example_car` — a small example project demonstrating how the macros are used
+- `feature_model` — an example UVL feature model and a generated configuration file
 
 
 ---
