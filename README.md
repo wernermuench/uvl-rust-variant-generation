@@ -1,6 +1,6 @@
 # UVL-Driven Variant Generation in Rust
 
-This project provides a Rust macro crate that enables 
+This project provides a macro-based preprocessor crate for Rust that enables 
 compile-time variant generation based on configurations created from 
 UVL (Universal Variability Language) feature models.
 The idea is to use concrete UVL configurations generated with UVLS
