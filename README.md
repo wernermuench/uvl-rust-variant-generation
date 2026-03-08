@@ -1,6 +1,6 @@
 # UVL-Driven Variant Generation in Rust
 
-This project provides a Rust procedural macro crate that enables 
+This project provides a Rust macro crate that enables 
 compile-time variant generation based on configurations created from 
 UVL (Universal Variability Language) feature models.
 The idea is to use concrete UVL configurations generated with UVLS
@@ -10,8 +10,9 @@ implemented using Rust's macro system.
 
 This repository contains:
 
-- `uvl_macros` – the procedural macro crate
-- `example_car` – a small example project demonstrating the usage
+- `uvl_macros` — the macro crate
+- `example_car` — a small example project demonstrating how the macros are used
+- `feature_model` — an example UVL feature model and a generated configuration file
 
 
 ---
@@ -31,7 +32,7 @@ The configuration file must be available during compilation.
 
 ## How It Works
 
-During compilation, the procedural macros:
+During compilation, the macros:
 
 1. Load the JSON configuration file.
 2. Parse and evaluate the given feature expression.
@@ -46,7 +47,7 @@ removed before the compiler processes the program.
 
 ## Provided Macros
 
-The crate provides four procedural macros for implementing
+The crate provides four macros for implementing
 variability at compile time.
 
 
