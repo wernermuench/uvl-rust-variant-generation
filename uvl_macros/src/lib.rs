@@ -91,28 +91,28 @@ fn get_config_path_from_cargotoml(cargo_toml: &toml::Value) -> &str {
         None => panic!("CARGO TOML ERROR: '[package.metadata]' section is missing in Cargo.toml!\n\
             Please add this to your Cargo.toml:\n\n\
             [package.metadata]\n\
-            uvl_path = \"config.uvl.json\"\n\n\
+            uvl_config_path = \"config.uvl.json\"\n\n\
             Note: \"config.uvl.json\" must be the path of your configuration json!"
         ),
     };
 
-    // Search for uvl_path value in metadata
-    let uvl_path_value = match metadata_section.get("uvl_path") {
+    // Search for uvl_config_path value in metadata
+    let uvl_config_path_value = match metadata_section.get("uvl_config_path") {
         Some(value) => value,
         None => panic!(
             "CARGO TOML ERROR: The configuration path is missing in Cargo.toml!\n\
             Please add this to your Cargo.toml:\n\n\
             [package.metadata]\n\
-            uvl_path = \"config.uvl.json\"\n\n\
+            uvl_config_path = \"config.uvl.json\"\n\n\
             Note: \"config.uvl.json\" must be the path of your configuration json!"
         ),
     };
 
     // Check if configuration path in [package.metadata] in Cargo.toml is a string
-    let config_filename = match uvl_path_value.as_str() {  // as_str() to get json path without quotation marks
+    let config_filename = match uvl_config_path_value.as_str() {  // as_str() to get json path without quotation marks
         Some(path) => path,
         None => panic!(
-            "CARGO TOML ERROR: The 'uvl_path' value in [package.metadata] \
+            "CARGO TOML ERROR: The 'uvl_config_path' value in [package.metadata] \
             in your Cargo.toml must be a string!"),
     };
 
@@ -145,9 +145,9 @@ fn load_config(required_features: HashSet<String>) -> (HashMapContext<DefaultNum
         Err(_) => {
             panic!(
                 "Failed to read the UVL configuration file!\n\
-                uvl_path is: '{}'\n\
+                uvl_config_path is: '{}'\n\
                 Resolved absolute path: {}\n\
-                Tip: Check [package.metadata] uvl_path in your Cargo.toml!", 
+                Tip: Check [package.metadata] uvl_config_path in your Cargo.toml!", 
                 config_filename, config_path.display()
             );
         }
